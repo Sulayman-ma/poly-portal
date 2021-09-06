@@ -5,7 +5,8 @@ base_dir = path.abspath(path.dirname(__file__))
 
 
 class Config:
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = 'another random string'
+    WTF_CSRF_SECRET_KEY = 'a random string'
 
     @staticmethod
     def init_app(app):
@@ -13,7 +14,6 @@ class Config:
 
 
 class Development(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + path.join(base_dir, 'dev.sqlite')
     DEBUG = 1
 
 
