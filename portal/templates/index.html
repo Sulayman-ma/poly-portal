@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block body %}
+
+<div class="form-div">
+    <!-- STUDENT SIGN UP FORM -->
+    <form id="student-signup" style="display: none;" method="POST" enctype="multipart/form-data">
+        <h1>Student Sign Up</h1>
+        
+        <input type="button" value="✖" class="close-btn">
+
+        <div class="form-group">
+            <input class="txt-input" type="text" placeholder="First Name" name="f-name">
+            <input class="txt-input" type="text" placeholder="Last Name" name="l-name">
+        </div>
+        
+        <div class="form-group">
+            <input class="txt-input" type="text" placeholder="Registration Number" name="reg_number">
+        </div>
+
+        <div class="form-group">
+            <input class="txt-input" type="text" placeholder="Department" name="department">
+        </div>
+
+        <div class="form-group">
+            <input class="txt-input" type="text" placeholder="Level" name="level">
+        </div>
+
+        <div class="form-group">
+            <input class="txt-input" type="password" placeholder="Password" name="password">
+        </div>
+
+        <div class="form-group">
+            <input class="txt-input" type="password" placeholder="Confirm Password" name="password2">
+        </div>
+
+        <div class="_8icz"></div>
+
+        <div class="form-group">
+            <input class="btn green-hov" type="submit" value="Sign Up">
+        </div>
+    </form>
+
+    <!-- GENERAL LOGIN FORM -->
+    <form id="login" method="POST">
+        <h1>unnamed</h1>
+
+        <div class="form-group">
+            <input class="txt-input" type="text" placeholder="User ID" name="user_id">
+        </div>
+
+        <div class="form-group">
+            <input class="txt-input" type="password" placeholder="Password" name="password">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Log In" class="btn blue-hov">
+        </div>
+
+        <a href="#">Forgotten password?</a>
+
+        <div class="_8icz"></div>
+
+        <input type="button" class="btn green-hov" value="Sign Up" onclick="signUp()">
+    </form>
+</div>
+
+{% endblock %}
