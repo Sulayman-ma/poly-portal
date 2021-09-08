@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+
+<div class="form-div">
+    <!-- STUDENT SIGN UP FORM -->
+    <form id="student-signup" method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.first_name(placeholder='First Name',class='txt-input')}}
+            {{ form.last_name(placeholder='Last Name',class='txt-input')}}
+        </div>
+        
+        <div class="form-group">
+            {{ form.reg_number(placeholder='Registration Number',class='txt-input')}}
+        </div>
+
+        <div class="form-group">
+            {{ form.department(list='departments', class='txt-input', placeholder='Departments') }}
+            <datalist id="departments">
+                <option value="Computer Science">
+                <option value="Chemistry">
+                <option value="Mass Communication">
+            </datalist>
+        </div>
+
+        <div class="form-group">
+            {{ form.level(list='levels', class='txt-input', placeholder='Level') }}
+            <datalist id="levels">
+                <option value="100">
+                <option value="200">
+                <option value="300">
+                <option value="400">
+                <option value="500">
+            </datalist>
+        </div>
+
+        <div class="form-group">
+            {{ form.password(placeholder='Password', class='txt-input') }}
+        </div>
+
+        <div class="_8icz"></div>
+
+        <div class="form-group">
+            {{ form.submit(class='btn green-hov') }}
+        </div>
+    </form>
+</div>
+
+{{ form.errors }}
+
+{% endblock %}
