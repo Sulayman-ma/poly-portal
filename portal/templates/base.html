@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     {% block head %}{% endblock %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Platform - {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 </head>
 <body>
     {% block body %}{% endblock %}
-
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

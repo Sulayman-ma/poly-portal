@@ -9,8 +9,12 @@
     <form id="student-signup" method="POST">
         {{ form.hidden_tag() }}
 
+        <h1>Sign Up Form</h1>
         <div class="form-group">
             {{ form.first_name(placeholder='First Name',class='txt-input')}}
+        </div>
+
+        <div class="form-group">
             {{ form.last_name(placeholder='Last Name',class='txt-input')}}
         </div>
         
@@ -19,12 +23,7 @@
         </div>
 
         <div class="form-group">
-            {{ form.department(list='departments', class='txt-input', placeholder='Departments') }}
-            <datalist id="departments">
-                <option value="Computer Science">
-                <option value="Chemistry">
-                <option value="Mass Communication">
-            </datalist>
+            {{ form.department(class='txt-input') }}
         </div>
 
         <div class="form-group">
@@ -42,14 +41,26 @@
             {{ form.password(placeholder='Password', class='txt-input') }}
         </div>
 
+        <div class="form-group">
+            {{ form.password2(placeholder='Confirm Password', class='txt-input') }}
+        </div>
+
         <div class="_8icz"></div>
 
         <div class="form-group">
-            {{ form.submit(class='btn green-hov') }}
+            {{ form.submit(class='btn green-hov txt-input') }}
         </div>
     </form>
 </div>
 
-{{ form.errors }}
+{% if form.errors %}
+    <ul>
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
 
 {% endblock %}

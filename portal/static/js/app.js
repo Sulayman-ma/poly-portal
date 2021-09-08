@@ -1,7 +1,7 @@
 var login = document.querySelector('#login')
 var studentSignUp = document.querySelector('#student-signup')
-var closeBtn = document.querySelector('.close-btn')
-closeBtn.addEventListener('click', close)
+// var closeBtn = document.querySelector('.close-btn')
+// closeBtn.addEventListener('click', close)
 
 
 function signUp() {

@@ -28,7 +28,7 @@ def upgrade():
     sa.Column('department', sa.String(length=128), nullable=False),
     sa.Column('level', sa.Integer(), nullable=False),
     sa.Column('password_hash', sa.String(length=128), nullable=True),
-    sa.PrimaryKeyConstraint('id', 'reg_number')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_students_department'), 'students', ['department'], unique=False)
     op.create_index(op.f('ix_students_level'), 'students', ['level'], unique=False)
