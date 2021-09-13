@@ -23,17 +23,12 @@
             {{ form.submit(class='btn blue-hov txt-input') }}
         </div>
 
-        {% for message in get_flashed_messages() %}
-        <div class="flash">
-            <li style="list-style: none;">{{ message }}</li>
-        </div>
-        {% endfor %}
-        
+        <a href="#">Forgotten password?</a>
+
         <div class="_8icz"></div>
     </form>
 </div>
 
-{# DEBUGGING PURPOSES #}
 {% if form.errors %}
     <ul>
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
