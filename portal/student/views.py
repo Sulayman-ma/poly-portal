@@ -5,8 +5,8 @@ from .forms import StudentBioData
 
 
 
-@student.route('/profile', methods = ['GET'])
+@student.route('/home', methods = ['GET'])
 @login_required
-def profile():
+def home():
     form = StudentBioData()
-    return render_template('student/profile.html', form = form)
+    return render_template('student/home.html', form = form)

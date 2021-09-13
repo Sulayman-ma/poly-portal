@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+<div class="main">
+    <div class="profile-header">
+        <!-- <img src="{{ url_for('static', filename='img/pic.png')}}"> -->
+        <h3>⚫ {{ current_user.user_id }}</h3>
+        <p><a href="{{ url_for('auth.logout') }}">Log Out</a></p>
+    </div>
+
+    <div class="_8icz"></div>
+
+</div>
+
+{% endblock %}

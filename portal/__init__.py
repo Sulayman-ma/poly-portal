@@ -8,14 +8,20 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_paranoid import Paranoid
 from config import configs
 
 
 
 db = SQLAlchemy()
 migrate = Migrate()
-login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
+paranoid = Paranoid()
+lm = LoginManager()
+
+lm.login_view = 'auth.login'
+paranoid.redirect_view = '/'
+# ensure session_protection is disbaled to avoid clashing with Flask-Paranoid
+lm.session_protection = None        
 
 
 def create_app(config_name):
@@ -32,7 +38,8 @@ def create_app(config_name):
     # extensions initializations
     db.init_app(app)
     migrate.init_app(app, db)
-    login_manager.init_app(app)
+    lm.init_app(app)
+    paranoid.init_app(app)
 
     # Blueprint registerations
     from .auth import auth
