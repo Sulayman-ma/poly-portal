@@ -9,7 +9,7 @@ environ['secret_key'] = generate_password_hash(temp_key)
 
 
 class Config:
-    SECRET_KEY = environ['secret_key']
+    SECRET_KEY = 'something temporary for now'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SESSION_COOKIE_SECURE = True
     REMEMBER_COOKIE_SECURE = True
