@@ -21,7 +21,8 @@ class Config:
 
 class Development(Config):
     DEBUG = 1
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:illyrian00@localhost:3306/poly_portal'
+#     SQLALCHEMY_DATABASE_URI = 'mysql://root:illyrian00@localhost:3306/poly_portal'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 
 
 
