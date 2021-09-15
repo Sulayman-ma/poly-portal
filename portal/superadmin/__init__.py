@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-student = Blueprint('student', __name__)
+superadmin = Blueprint('superadmin', __name__)
 
 from . import views, forms

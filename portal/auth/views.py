@@ -40,8 +40,8 @@ def identify_role(user_id):
     """
     patterns = [
         (r'', 'lecturer'),
-        (r'[a-zA-Z]{5}_#[0-9]{5}', 'admin'),
-        (r'[a-zA-Z]{5}_$[0-9]{5}_', 'super')
+        (r'[a-zA-Z]{5}_$[0-9]{5}', 'admin'),
+        (r'[a-zA-Z]{5}_#[0-9]{5}', 'super')
     ]
 
     for pattern in patterns:
