@@ -1,6 +1,6 @@
-from flask import render_template, redirect, flash
+from flask import render_template
 from . import admin
-from decorators import role_required
+from ..decorators import role_required
 
 
 

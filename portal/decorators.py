@@ -1,6 +1,6 @@
 import re
 from flask import current_app, session, flash, request, url_for, redirect
-from flask_login import current_user, logout_user
+from flask_login import current_user
 from functools import wraps
 
 
