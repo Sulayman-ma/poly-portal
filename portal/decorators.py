@@ -25,19 +25,3 @@ def role_required(roles):
             return func(*args, **kwargs)
         return function_wrapper
     return decorator
-
-
-def active_user(message='User is currently in an inactive state, kindly contact your administrator.'):
-    """
-    This simpler decorator checks to ensure that the user is currently active on the platform. Users that have not been activated will be denied access and notified to contact an administrator by default. A custom message may be included instead.
-    This decorator is best applied to the login view. Other views may be modified to make use of it too.
-    """
-    def decorator(func):
-        @wraps(func)
-        def function_wrapper(*args, **kwargs):
-            if not current_user.active_status:
-                flash(message)
-            else:
-                return func(*args, **kwargs)
-        return function_wrapper
-    return decorator

@@ -12,7 +12,6 @@ from . import auth
 from .. import db, lm
 from ..models import Lecturer, Student, Admin, SuperAdmin
 from .forms import LoginForm
-from ..decorators import active_user
 
 
 
@@ -54,7 +53,6 @@ def identify_role(user_id):
 
 
 @auth.route('/', methods = ['GET', 'POST'])
-@active_user()
 def login():
     """General login view for all users on the platform. Sets the account role session key based on pattern of user ID.
     """
