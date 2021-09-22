@@ -47,13 +47,13 @@ def create_app(config_name):
     # Blueprint registerations
     from .auth import auth
     from .student import student
-    # from .admin import admin
+    from .admin import admin
     from .super import super
     # from .lecturer import lecturer
     
     app.register_blueprint(auth)
     app.register_blueprint(student)
-    # app.register_blueprint(admin)
+    app.register_blueprint(admin)
     # app.register_blueprint(lecturer)
     app.register_blueprint(super)
 
