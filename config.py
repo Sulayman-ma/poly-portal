@@ -1,12 +1,11 @@
 """
 Application configuration file. Classes based on development, production or testing.
 """
-from os import environ
 
 
 
 class Config:
-    SECRET_KEY = environ['SECRET_KEY'] or '83sCG5nbDXXR#-+ghVPKLRh9837_$'
+    SECRET_KEY = '83sCG5nbDXXR#-+ghVPKLRh9837_$'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SESSION_COOKIE_SECURE = True
     REMEMBER_COOKIE_SECURE = True
