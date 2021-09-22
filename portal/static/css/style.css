@@ -24,11 +24,19 @@ fieldset {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-.txt-input {
-  width: 90%;
-  padding: 10px;
+input[type=text], 
+input[type=password], 
+input[type=submit], 
+select 
+{
   outline: none;
-  caret-color: rgb(39, 51, 156);
+  width: 100%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .btn {
@@ -72,9 +80,23 @@ fieldset {
 }
 
 .link-btn {
-  padding: 10px 70px;
-  margin: auto;
-  width: 100%;
+  text-size-adjust: 100%;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 6px 18px;
+  color: #ffffff;
+  background-color: rgb(68, 68, 68);
+  box-shadow: none;
+  margin: 25px 0 0 0;
+}
+
+.link-btn:hover {
+  background-color: rgb(134, 133, 133);
 }
 
 /* ------------------ */
@@ -93,6 +115,14 @@ fieldset {
   margin-top: 20px;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sub {
+  margin-top: 20px;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  display: block;
 }
 
 .title {
@@ -116,5 +146,50 @@ fieldset {
   padding: 10px;
   text-align: center;
   font-weight: lighter;
-  color: red;
+}
+
+.info {
+  color: rgb(0, 0, 255);
+}
+
+.error {
+  color: rgb(255, 0, 0);
+}
+
+.warning {
+  color: rgb(255, 0, 0);
+}
+
+.warning::before {
+  content: 'Warning ❗ ';
+}
+
+.message {
+  color: rgb(75, 75, 75);
+}
+
+/* ------------------- */
+/* TABLES */
+/* ------------------- */
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #555555;
+  color: white;
 }

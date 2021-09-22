@@ -12,6 +12,7 @@ from . import auth
 from .. import db, lm
 from ..models import Lecturer, Student, Admin, SuperAdmin
 from .forms import LoginForm
+from ..decorators import active_user
 
 
 
@@ -24,6 +25,7 @@ def load_user(user_id):
 
     :param user_id: Primary key of the model
     """
+    session.setdefault('acc_role', '')
     if session['acc_role'] == 'student':
         return Student.query.get(user_id)
     elif session['acc_role'] == 'lecturer':
@@ -40,8 +42,8 @@ def identify_role(user_id):
     """
     patterns = [
         (r'', 'lecturer'),
-        (r'[a-zA-Z]{5}_$[0-9]{5}', 'admin'),
-        (r'[a-zA-Z]{5}_#[0-9]{5}', 'super')
+        (r'[a-z]{5}_[0-9]{5}', 'admin'),
+        (r'[a-z]{5}_#[0-9]{5}', 'super')
     ]
 
     for pattern in patterns:
@@ -52,6 +54,7 @@ def identify_role(user_id):
 
 
 @auth.route('/', methods = ['GET', 'POST'])
+@active_user()
 def login():
     """General login view for all users on the platform. Sets the account role session key based on pattern of user ID.
     """
@@ -68,9 +71,10 @@ def login():
         if user is not None and check_password_hash(user.password_hash, password=form.password.data):
             # login user and redirect to appropriate blueprint
             login_user(user)
+            # del session['acc_role']
             return redirect(url_for('{}.home'.format(acc_role)))
-        flash('Incorrect user ID or pasword!')
-
+        form.password.data = ''
+        flash('Incorrect user ID or pasword!', 'error')
     return render_template('auth/login.html', form = form)
 
 
@@ -80,4 +84,4 @@ def logout():
     Logout view. Function is obvious. Makes use of Flask-Login's logout_user() function to reset the session values and log user out. Redirects to login page.
     """
     logout_user()
-    return redirect(url_for('.login'))
+    return redirect(url_for('.login', next = None))

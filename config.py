@@ -1,15 +1,12 @@
-import secrets
-from os import path, environ
-from werkzeug.security import generate_password_hash
+"""
+Application configuration file. Classes based on development, production or testing.
+"""
+from os import environ
 
-
-base_dir = path.abspath(path.dirname(__file__))
-temp_key = secrets.token_hex(16)
-environ['secret_key'] = generate_password_hash(temp_key)
 
 
 class Config:
-    SECRET_KEY = 'something temporary for now'
+    SECRET_KEY = environ['SECRET_KEY'] or '83sCG5nbDXXR#-+ghVPKLRh9837_$'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SESSION_COOKIE_SECURE = True
     REMEMBER_COOKIE_SECURE = True
@@ -20,10 +17,8 @@ class Config:
 
 
 class Development(Config):
-    DEBUG = 1
-#     SQLALCHEMY_DATABASE_URI = 'mysql://root:illyrian00@localhost:3306/poly_portal'
+    # SQLALCHEMY_DATABASE_URI = 'mysql://root:illyrian00@localhost:3306/poly_portal'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
-
 
 
 configs = {
