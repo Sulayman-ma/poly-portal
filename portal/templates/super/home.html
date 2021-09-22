@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Super Admin Home{% endblock %}
+
+{% block body %}
+
+<div class="main">
+    <div class="title">{{ current_user.user_id }}</div>
+    <p><a href="{{ url_for('auth.logout') }}">Log Out</a></p>
+
+    <div class="sub">
+        <!-- CREATE ADMINS -->
+        <a class="link-btn" href="{{ url_for('super.create_admin') }}">Create Admin</a>
+
+
+        <!-- MANAGE ADMINS -->
+        <a class="link-btn" href="{{ url_for('super.manage_admins') }}">Manage Admins</a>
+
+
+        <!-- FORM TO FIND LECTURERS AND STUDENTS -->
+        <a class="link-btn" href="#">Other Admin Functions</a>    
+    </div>
+    
+</div>
+
+{% endblock %}
